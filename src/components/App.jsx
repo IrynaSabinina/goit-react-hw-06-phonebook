@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Form } from './Form/Form';
 import { ContactsList } from './Contacts/ContactsList';
 import { FindElement } from './FindElement/FindElement';
-
+import { store } from '../redux/store';
+console.log(store.getState());
 
 export class App extends Component {
   state = {
@@ -28,7 +29,7 @@ export class App extends Component {
       name.toUpperCase().includes(filter.toUpperCase())
     );
   };
-  
+
   componentDidMount() {
     if (localStorage.getItem('contacts')) {
       this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
@@ -38,7 +39,6 @@ export class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-      console.log('hello');
     }
   }
 
