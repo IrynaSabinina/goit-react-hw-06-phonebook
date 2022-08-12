@@ -9,7 +9,6 @@ export const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(contactsSelector);
-  console.log(contacts);
 
   const dispatch = useDispatch();
 

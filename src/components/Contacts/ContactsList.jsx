@@ -13,14 +13,13 @@ export const ContactsList = () => {
   const contacts = useSelector(contactsSelector);
   const filter = useSelector(filterSelector);
   const dispatch = useDispatch();
-  console.log(contacts);
-  console.log(filter);
+  // console.log(contacts);
+  // console.log(filter);
 
   const avaliableContacts = contacts.filter(({ name }) =>
     name.toUpperCase().includes(filter.toUpperCase())
   );
 
-  console.log(avaliableContacts);
   return (
     <div className={styles.contacts}>
       <h2 className={styles.title}>Contacts</h2>
