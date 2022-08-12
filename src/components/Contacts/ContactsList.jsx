@@ -16,9 +16,10 @@ export const ContactsList = () => {
   console.log(contacts);
   console.log(filter);
 
-  const avaliableContacts = contacts.items.filter(({ name }) =>
+  const avaliableContacts = contacts.filter(({ name }) =>
     name.toUpperCase().includes(filter.toUpperCase())
   );
+
   console.log(avaliableContacts);
   return (
     <div className={styles.contacts}>

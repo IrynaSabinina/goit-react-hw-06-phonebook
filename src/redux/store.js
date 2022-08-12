@@ -15,7 +15,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'contacts',
   storage,
-  blacklist: ['filter'],
+  whitelist: ['filter'],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

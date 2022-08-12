@@ -10,7 +10,7 @@ import { filterAction } from 'redux/actions';
 export const FindElement = () => {
   const filter = useSelector(filterSelector);
   const dispatch = useDispatch();
-
+  console.log(filter);
   return (
     <div className={styles.findForm}>
       <label className={styles.findForm}>

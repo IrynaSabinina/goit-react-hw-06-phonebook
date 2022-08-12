@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
+
 import styles from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addAction } from '../../redux/actions';
@@ -9,7 +9,7 @@ export const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contacts = useSelector(contactsSelector);
-  console.log(contacts.items);
+  console.log(contacts);
 
   const dispatch = useDispatch();
 
@@ -29,20 +29,20 @@ export const Form = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const id = nanoid();
-    const inContacts = contacts.items.some(
-      item => item.name.toLowerCase() === name.toLowerCase()
+
+    const inContacts = contacts.some(
+      item => item.name.toUpperCase() === name.toUpperCase()
     );
 
     if (inContacts) {
       alert('is already in your phonebook');
       return;
+    } else {
+      dispatch(addAction(name, number));
+
+      // onSubmit({ name, number, id });-> dis
+      resetInput();
     }
-
-    dispatch(addAction({ name, number, id }));
-
-    // onSubmit({ name, number, id });-> dis
-    resetInput();
   };
 
   const resetInput = () => {
